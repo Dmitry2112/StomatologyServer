@@ -9,24 +9,22 @@ import {RoleGuard} from "../auth/role.guard";
 export class UsersController {
     constructor(private userSrevice: UsersService) {
     }
-    @UseGuards(JwtAuthGuard)
-    @Role('ADMIN')
-    @UseGuards(RoleGuard)
+
     @Post()
     create(@Body() userDto: CreateUserDto) {
         return this.userSrevice.createUser(userDto);
     }
 
-    @UseGuards(JwtAuthGuard)
-    @Role('ADMIN')
-    @UseGuards(RoleGuard)
     @Get()
     getAll() {
         return this.userSrevice.getAllUsers();
     }
 
-    @Get(':email')
-    getByEmail(@Param('email') email: string) {
-        return this.userSrevice.getUserByEmail(email);
+    @UseGuards(JwtAuthGuard)
+    @Role('ADMIN')
+    @UseGuards(RoleGuard)
+    @Get(':id')
+    getById(@Param('id') id: number) {
+        return this.userSrevice.getUserById(id);
     }
 }

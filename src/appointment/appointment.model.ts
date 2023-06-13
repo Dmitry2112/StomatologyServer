@@ -1,5 +1,6 @@
-import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
 import {Therapy} from "../therapy/therapy.model";
+import {Service} from "../services/services.model";
 
 interface AppointmentCreationAttrs {
     name: string;
@@ -37,4 +38,6 @@ export class Appointment extends Model<Appointment, AppointmentCreationAttrs> {
     @BelongsTo(() => Therapy)
     therapy: Therapy
 
+    @HasMany(()=> Service)
+    services: Service[]
 }

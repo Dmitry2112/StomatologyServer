@@ -23,8 +23,11 @@ export class UsersService {
 
     async getUserByEmail(email: string) {
         const user = await this.userRepository.findOne({where: {email}, include: {all: true, nested: true}})
-        // const userComplitedAppointment = getComplitedAppointment(user.id)
-        // user.therapy.forEach(t => t.appointments.forEach(appointment => ))
+        return user
+    }
+
+    async getUserById(id: number) {
+        const user = await  this.userRepository.findByPk(id, {include: {all: true, nested:true}})
         return user
     }
 }
