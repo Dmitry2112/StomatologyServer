@@ -1,4 +1,5 @@
-import {Column, DataType, Model, Table} from "sequelize-typescript";
+import {Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
+import {Therapy} from "../therapy/therapy.model";
 
 interface UserCreationAttrs {
     email: string;
@@ -30,4 +31,6 @@ export class User extends Model<User, UserCreationAttrs> {
     DOB: string
     @Column({type: DataType.STRING, allowNull: false})
     role: string
+    @HasMany(()=> Therapy)
+    therapy: Therapy[]
 }
