@@ -9,6 +9,8 @@ import {User} from "./users/user.model";
 import { AuthModule } from './auth/auth.module';
 import { TherapyModule } from './therapy/therapy.module';
 import {Therapy} from "./therapy/therapy.model";
+import { AppointmentModule } from './appointment/appointment.module';
+import {Appointment} from "./appointment/appointment.model";
 
 @Module({
   imports: [
@@ -20,12 +22,13 @@ import {Therapy} from "./therapy/therapy.model";
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRES_PASSWORD,
         database: process.env.POSTGRES_DB,
-        models: [User, Therapy],
+        models: [User, Therapy, Appointment],
         autoLoadModels: true
     }),
     UsersModule,
     AuthModule,
     TherapyModule,
+    AppointmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

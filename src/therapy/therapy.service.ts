@@ -13,4 +13,14 @@ export class TherapyService {
         return therapy;
     }
 
+    async getAll() {
+        const therapy = await this.therapyRepository.findAll({include: {all: true}});
+        return therapy;
+    }
+
+    async getComplitedAppointment(userId: number) {
+        const therapys = await this.therapyRepository.findAll({where: {userId: userId}, include: {all: true}});
+
+    }
+
 }

@@ -1,4 +1,4 @@
-import {Body, Controller, Post} from '@nestjs/common';
+import {Body, Controller, Get, Post} from '@nestjs/common';
 import {CreateTherapyDto} from "./dto/create-therapy.dto";
 import {TherapyService} from "./therapy.service";
 
@@ -9,7 +9,12 @@ export class TherapyController {
 
     @Post()
     createTherapy(@Body() dto: CreateTherapyDto) {
-        this.therapyService.create(dto)
+        return this.therapyService.create(dto)
+    }
+
+    @Get()
+    getAll() {
+        return this.therapyService.getAll()
     }
 
 }

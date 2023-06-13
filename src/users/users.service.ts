@@ -17,12 +17,14 @@ export class UsersService {
 
 
     async getAllUsers() {
-        const users = await this.userRepository.findAll({include: {all: true}});
+        const users = await this.userRepository.findAll({include: {all: true, nested: true}});
         return users;
     }
 
     async getUserByEmail(email: string) {
-        const user = await this.userRepository.findOne({where: {email}, include: {all: true}})
+        const user = await this.userRepository.findOne({where: {email}, include: {all: true, nested: true}})
+        // const userComplitedAppointment = getComplitedAppointment(user.id)
+        // user.therapy.forEach(t => t.appointments.forEach(appointment => ))
         return user
     }
 }
