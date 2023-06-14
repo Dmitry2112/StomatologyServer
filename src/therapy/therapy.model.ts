@@ -23,6 +23,6 @@ export class Therapy extends Model<Therapy, TherapyCreationAttrs> {
     @BelongsTo(() => User)
     user: User
 
-    @HasMany(() => Appointment)
+    @HasMany(() => Appointment, { onDelete: 'cascade' })
     appointments: Appointment[]
 }

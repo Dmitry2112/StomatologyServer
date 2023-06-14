@@ -38,6 +38,6 @@ export class Appointment extends Model<Appointment, AppointmentCreationAttrs> {
     @BelongsTo(() => Therapy)
     therapy: Therapy
 
-    @HasMany(()=> Service)
+    @HasMany(()=> Service, { onDelete: 'cascade' })
     services: Service[]
 }

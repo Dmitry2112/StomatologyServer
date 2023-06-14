@@ -14,6 +14,7 @@ export class FilesService {
     async create(dto: CreateFileDto, image: any) {
         const fileName = await this.createFile(image, dto.fileName)
         const file = await this.fileRepository.create({...dto, fileName: fileName})
+        return file
     }
 
     async createFile(file, oldFileName): Promise<string> {

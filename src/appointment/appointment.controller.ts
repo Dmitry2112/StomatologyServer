@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
 import {AppointmentService} from "./appointment.service";
 import {CreateAppointmentDto} from "./dto/create-appointment.dto";
 
@@ -8,9 +8,13 @@ export class AppointmentController {
     }
 
     @Post()
-    createTherapy(@Body() dto: CreateAppointmentDto) {
+    createAppointment(@Body() dto: CreateAppointmentDto) {
         return this.appointmentService.create(dto)
     }
 
+    @Delete(':id')
+    deleteTherapy(@Param('id') id: number) {
+        return this.appointmentService.deleteAppointment(id)
+    }
 
 }

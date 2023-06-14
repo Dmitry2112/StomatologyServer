@@ -13,4 +13,8 @@ export class AppointmentService {
         return appointment;
     }
 
+    async deleteAppointment(id: number) {
+        await this.appointmentRepository.destroy({where: {id: id}})
+    }
+
 }

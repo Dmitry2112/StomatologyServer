@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
 import {CreateTherapyDto} from "./dto/create-therapy.dto";
 import {TherapyService} from "./therapy.service";
 
@@ -15,6 +15,11 @@ export class TherapyController {
     @Get()
     getAll() {
         return this.therapyService.getAll()
+    }
+
+    @Delete(':id')
+    deleteTherapy(@Param('id') id: number) {
+        return this.therapyService.deleteTherapy(id)
     }
 
 }

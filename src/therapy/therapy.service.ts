@@ -23,8 +23,8 @@ export class TherapyService {
 
     }
 
-    // async deleteTherapy(id: number) {
-    //
-    // }
+    async deleteTherapy(id: number) {
+        return await this.therapyRepository.destroy({where: {id: id}})
+    }
 
 }

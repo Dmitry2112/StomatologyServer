@@ -12,4 +12,8 @@ export class ServicesService {
         const service = await this.serviceRepository.create(dto)
         return service;
     }
+
+    async deleteService(id: number) {
+        return await this.serviceRepository.destroy({where: {id: id}})
+    }
 }
