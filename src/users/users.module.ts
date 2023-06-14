@@ -8,12 +8,13 @@ import {TherapyModule} from "../therapy/therapy.module";
 import {Therapy} from "../therapy/therapy.model";
 import {Appointment} from "../appointment/appointment.model";
 import {Service} from "../services/services.model";
+import {File} from "../files/files.model";
 
 
 @Module({
   controllers: [UsersController],
   providers: [UsersService],
-  imports: [SequelizeModule.forFeature([User, Therapy, Appointment, Service]),
+  imports: [SequelizeModule.forFeature([User, Therapy, Appointment, Service, File]),
     forwardRef(() => AuthModule)],
   exports: [UsersService]
 })

@@ -1,5 +1,6 @@
 import {Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
 import {Therapy} from "../therapy/therapy.model";
+import {File} from "../files/files.model";
 
 interface UserCreationAttrs {
     email: string;
@@ -33,4 +34,6 @@ export class User extends Model<User, UserCreationAttrs> {
     role: string
     @HasMany(()=> Therapy)
     therapy: Therapy[]
+    @HasMany(()=> File)
+    photos: File[]
 }

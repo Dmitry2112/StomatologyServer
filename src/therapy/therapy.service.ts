@@ -23,4 +23,8 @@ export class TherapyService {
 
     }
 
+    // async deleteTherapy(id: number) {
+    //
+    // }
+
 }

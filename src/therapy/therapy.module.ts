@@ -7,11 +7,12 @@ import {User} from "../users/user.model";
 import {Therapy} from "./therapy.model";
 import {Appointment} from "../appointment/appointment.model";
 import {Service} from "../services/services.model";
+import {File} from "../files/files.model"
 
 @Module({
   controllers: [TherapyController],
   providers: [TherapyService],
-  imports: [SequelizeModule.forFeature([User, Therapy, Appointment, Service])],
+  imports: [SequelizeModule.forFeature([User, Therapy, Appointment, Service, File])],
   exports: [TherapyService]
 })
 export class TherapyModule {}
