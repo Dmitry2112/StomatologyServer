@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {InjectModel} from "@nestjs/sequelize";
 import {Appointment} from "./appointment.model";
 import {CreateAppointmentDto} from "./dto/create-appointment.dto";
+import {PatchAppointmentDto} from "./dto/patch-appointment.dto";
 
 @Injectable()
 export class AppointmentService {
@@ -17,4 +18,7 @@ export class AppointmentService {
         await this.appointmentRepository.destroy({where: {id: id}})
     }
 
+    async updateAppointment(id: number, dto: PatchAppointmentDto) {
+        return await this.appointmentRepository.update(dto, {where: {id: id}});
+    }
 }

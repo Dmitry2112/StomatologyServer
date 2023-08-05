@@ -33,4 +33,7 @@ export class FilesService {
         }
     }
 
+    async getAllUserFiles(userId: number) {
+        return await this.fileRepository.findAll({where: {userId: userId}});
+    }
 }

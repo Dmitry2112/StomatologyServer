@@ -14,7 +14,7 @@ export class AuthService {
         const user = await this.validateUser(loginUserDto)
         const token = await this.generateToken(user)
         return {
-            accessToken: token,
+            accessToken: token.token,
             user: {
                 email: user.email,
                 id: user.id,
